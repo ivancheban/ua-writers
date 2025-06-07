@@ -1,0 +1,113 @@
+---
+import HeaderFooterLayout from '../layouts/header-footer-layout.astro';
+import { Container, Row, Col } from '../components/grid';
+import Heading from '../components/heading';
+import Section from '../components/section';
+import Stack from '../components/stack';
+import Anchor from '../components/anchor';
+import Paragraph from '../components/paragraph'; // Assuming you have this component
+
+// Import maintainer images
+import IvanChebanImg from '../assets/ivan-cheban.jpg'; // Adjust path if necessary
+import YaroslavaKachanImg from '../assets/yaroslava-kachan.jpg'; // Adjust path if necessary
+---
+
+<HeaderFooterLayout
+    title="About us"
+    description="Meet our new platform for technical writers, UX writers, content writers, copywriters, and all other kinds of writers who are eager to share their ideas and expertise in the form of a blog article."
+>
+    <Section>
+        <Container>
+            <Stack gap="lg">
+                <Heading level="h1" size={40}>About us</Heading>
+
+                <Paragraph size={18}>
+                    Meet our new platform for technical writers, UX writers, content writers, copywriters, and
+                    all other kinds of writers who are eager to share their ideas and expertise in the form of
+                    a blog article.
+                </Paragraph>
+
+                <Stack gap="md">
+                    <Paragraph size={16}>
+                        Dear writers,
+                    </Paragraph>
+                    <Paragraph size={16}>
+                        We've been nursing the idea of a platform where we could exchange our expertise and
+                        advice on different subjects relating to writing for a long time. Finally, the idea has shaped
+                        itself into a blog. This blog allows you to publish and edit your posts, read what others write,
+                        and add comments or reactions.
+                    </Paragraph>
+                    <Paragraph size={16}>
+                        You know that we have been talking to each other on Telegram channels for technical writers
+                        and UX writers of Ukraine. Those channels are a good place for communication in real time.
+                        This blog is for writing! Yes, we're excited to announce that now you have a space, Ukrainian
+                        Writer's Space, where you can actually show your writing and share your ideas.
+                    </Paragraph>
+                    <Paragraph size={16}>
+                        Sincerely,
+                        <br />
+                        Yaroslava Kachan and Ivan Cheban
+                        <br />
+                        Maintainers of Ukrainian Writers' Space
+                    </Paragraph>
+                </Stack>
+            </Stack>
+        </Container>
+    </Section>
+
+    {/* NEW SECTION FOR MAINTAINERS */}
+    <Section>
+        <Container>
+            <Stack gap="xl"> {/* Add more gap before the maintainers section if desired */}
+                {/* Optional: Add a heading for this section if you like */}
+                {/* <Heading level="h2" size={32} align="center">Meet the Maintainers</Heading> */}
+
+                <Row justifyContent="center" gap="lg"> {/* Center the row content if fewer than max columns */}
+                    {/* Ivan Cheban Profile */}
+                    <Col span={4} break="md" style="text-align: center;"> {/* Adjust span for desired width, e.g., 4 or 5 or 6 */}
+                        <Stack gap="sm">
+                            <img
+                                src={IvanChebanImg.src}
+                                alt="Photo of Ivan Cheban"
+                                style="width: 100%; max-width: 250px; height: auto; border-radius: 8px; margin-bottom: 0.5rem; aspect-ratio: 1 / 1; object-fit: cover;"
+                            />
+                            <Heading level="h3" size={20}>Ivan Cheban</Heading>
+                            <Paragraph size={14}>Maintainer of Ukrainian Writers' Space</Paragraph>
+                        </Stack>
+                    </Col>
+
+                    {/* Yaroslava Kachan Profile */}
+                    <Col span={4} break="md" style="text-align: center;"> {/* Adjust span for desired width */}
+                        <Stack gap="sm">
+                            <img
+                                src={YaroslavaKachanImg.src}
+                                alt="Photo of Yaroslava Kachan"
+                                style="width: 100%; max-width: 250px; height: auto; border-radius: 8px; margin-bottom: 0.5rem; aspect-ratio: 1 / 1; object-fit: cover;"
+                            />
+                            <Heading level="h3" size={20}>Yaroslava Kachan</Heading>
+                            <Paragraph size={14}>Maintainer of Ukrainian Writers' Space</Paragraph>
+                        </Stack>
+                    </Col>
+                </Row>
+            </Stack>
+        </Container>
+    </Section>
+
+    {/* Privacy Policies Link - Moved to the very bottom or can be kept higher up */}
+    <Section>
+        <Container style="text-align: center; padding-top: 2rem;">
+            <Anchor href="/about/privacy-policies" textDecoration="none">Privacy Policies</Anchor>
+        </Container>
+    </Section>
+
+</HeaderFooterLayout>
+
+<style is:global>
+    /* Optional: Add some global styles if your components don't cover everything,
+       or if you want to ensure consistent image aspect ratios for profiles. */
+    .maintainer-profile img {
+        /* aspect-ratio: 1 / 1; /* Makes images square */
+        /* object-fit: cover; /* Ensures image covers the square, might crop */
+        /* border-radius: 50%; /* For circular profile pictures */
+    }
+</style>

@@ -1,0 +1,79 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import stylex from '@stylexjs/stylex';
+import HeaderFooterLayout from '../layouts/header-footer-layout.astro';
+import { Container, Row, Col } from '../components/grid';
+import Heading from '../components/heading';
+import Section from '../components/section';
+import Stack from '../components/stack';
+import { Card, CardHeader, CardFooter } from '../components/card';
+import Aspect from '../components/aspect';
+import Paragraph from '../components/paragraph';
+import { Tag, TagLabel, TagIcon } from '../components/tag';
+import Anchor from '../components/anchor';
+import getFormattedDate from '../helpers/get-formatted-date';
+
+import blogThumbnail from '../assets/blogs/blog-thumbnail.svg';
+import CalendarIcon from '../assets/icons/calendar.svg';
+import UserIcon from '../assets/icons/user.svg';
+
+export const styles = stylex.create({
+	thumbnail: {
+		maxWidth: '100%',
+		maxHeight: '100%',
+	},
+});
+
+const posts = await getCollection('blog');
+---
+
+<HeaderFooterLayout
+	title="Blog - Budget Warden"
+	description="Explore the Budget Warden blog for expert tips, personal finance advice, and practical budgeting strategies. Stay informed with the latest articles to help you manage your money and take control of your financial future."
+>
+	<Section>
+		<Container>
+			<Stack gap="lg">
+				<Heading level="h1" size={40}>Blog</Heading>
+				
+				<Row largeGutter={true}>
+					{posts.map((post, index) => (
+						<Col span={6} break="md" largeGutter={true}>
+							<Card>
+								<CardHeader>
+									<Aspect>
+										<img {...stylex.attrs(styles.thumbnail)} src={post.data.thumbnail} alt="" loading={index > 3 ? 'lazy' : 'eager'} role="presentation" />
+									</Aspect>
+								</CardHeader>
+								<Stack gap="md">
+									<Stack gap="sm">
+										<Heading level="h2" size={30}>
+											<Anchor href={`/blog/${post.id}`} textDecoration="none">{post.data.title}</Anchor>
+										</Heading>
+										<Paragraph fontSize={26}>
+											{post.data.summary}
+										</Paragraph>
+									</Stack>
+									<CardFooter>
+										<Tag>
+											<TagIcon>
+												<UserIcon aria-label="user icon" />
+											</TagIcon>
+											<TagLabel>{post.data.author}</TagLabel>
+										</Tag>
+										<Tag>
+											<TagIcon>
+												<CalendarIcon aria-label="date icon" />
+											</TagIcon>
+											<TagLabel>{getFormattedDate(post.data.date)}</TagLabel>
+										</Tag>
+									</CardFooter>
+								</Stack>
+							</Card>
+						</Col>
+					))}
+				</Row>
+			</Stack>
+		</Container>
+	</Section>
+</HeaderFooterLayout>

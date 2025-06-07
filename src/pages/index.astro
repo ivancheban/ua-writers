@@ -1,0 +1,207 @@
+---
+import stylex from '@stylexjs/stylex';
+import FooterLayout from '../layouts/footer-layout.astro';
+import { Container } from '../components/grid';
+import Header from '../components/header';
+import { Row, Col } from '../components/grid';
+import Heading from '../components/heading';
+import Stack from '../components/stack';
+import Paragraph from '../components/paragraph';
+import Button from '../components/button';
+import Section from '../components/section';
+import { Card, CardHeader } from '../components/card';
+
+// Illustrations for the "What You Can Do" section
+import ContributeIllustration from '../assets/contribute.jpg';
+import ReadEngageIllustration from '../assets/read-engage.png';
+import GrowCommunityIllustration from '../assets/grow-community.png';
+
+// Hero section assets
+import HeroIllustration from '../assets/hero.jpg';
+import HeroBackground from '../assets/hero-background.svg';
+
+// Note: CtaIllustration import is removed as the CTA is now in prefooter.tsx
+
+const currentPath = new URL(Astro.request.url).pathname;
+
+export const lg = '@media (max-width: 1024px)';
+
+export const styles = stylex.create({
+    hero: {
+        position: 'relative',
+        overflow: 'hidden',
+    },
+    heroBgShape: {
+        position: 'absolute',
+        top: {
+            default: null,
+            [lg]: 'auto',
+        },
+        bottom: {
+            default: 0,
+        },
+        left: '50%',
+        transform: 'translateX(-50%)',
+    },
+    heroContent: {
+        position: 'relative',
+    },
+    heroMainCol: {
+        paddingTop: '1.666rem',
+    },
+    heroIllustrationContainer: {
+        position: 'relative',
+        minHeight: '22rem',
+        display: {
+            default: 'block',
+            [lg]: 'none',
+        },
+        marginRight: '1rem',
+    },
+    heroIllustration: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        bottom: 0,
+        right: 0,
+        width: '100%',
+        height: '100%',
+        objectFit: 'contain',
+    },
+    cardIllustrationContainer: {
+        height: '180px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    cardIllustration: {
+        maxWidth: '100%',
+        maxHeight: '100%',
+        objectFit: 'contain',
+    },
+    // ctaBanner and ctaImage styles removed as CTA is now in prefooter.tsx
+});
+---
+
+<FooterLayout title="Ukrainian Writers' Space - Overview">
+    {/* HERO SECTION */}
+    <section {...stylex.attrs(styles.hero)}>
+        <HeroBackground {...stylex.attrs(styles.heroBgShape)} role="presentation" />
+        <div {...stylex.attrs(styles.heroContent)}>
+            <Container>
+                <Header client:idle currentPath={currentPath} />
+                <Row>
+                    <Col span={8} break="lg">
+                        <div {...stylex.attrs(styles.heroMainCol)}>
+                            <Stack gap="md">
+                                <Stack gap="sm">
+                                    <Heading level="h1" size={40}>Ukrainian Writers' Space</Heading>
+                                    <Heading level="h2" size={32} fontWeight='regular'>A platform for technical writers, UX writers, content writers, copywriters, and all other kinds of writers</Heading>
+                                </Stack>
+                                <Row>
+                                    <Col span={11}>
+                                        <Paragraph>This is the space where Ukrainian tech writers, UX writers, and copywriters share their expertise. Let's write together!</Paragraph>
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col layout="fit">
+                                        <Button href="/blog">Explore articles</Button>
+                                    </Col>
+                                </Row>
+                            </Stack>
+                        </div>
+                    </Col>
+                    <Col>
+                        <div {...stylex.attrs(styles.heroIllustrationContainer)}>
+                            <img
+                                src={HeroIllustration.src}
+                                alt="Illustration for Ukrainian Writers' Space hero section showing diverse writers collaborating"
+                                {...stylex.attrs(styles.heroIllustration)}
+                            />
+                        </div>
+                    </Col>
+                </Row>
+            </Container>
+        </div>
+    </section>
+
+    {/* "WHAT YOU CAN DO" FEATURES SECTION */}
+    <Container>
+        <Section>
+            <Stack gap="xl">
+                <Heading level="h2" size={40} align="center">What you can do</Heading>
+                <Row gap="lg">
+                    {/* Card 1: Share Your Expertise */}
+                    <Col span={4} break="md" halfBreak="lg">
+                        <Card>
+                            <Stack gap="md">
+                                <CardHeader>
+                                    <div {...stylex.attrs(styles.cardIllustrationContainer)}>
+                                        <img
+                                            src={ContributeIllustration.src}
+                                            alt="Illustration of a person writing a new blog post on a laptop"
+                                            {...stylex.attrs(styles.cardIllustration)}
+                                        />
+                                    </div>
+                                </CardHeader>
+                                <Stack gap="sm">
+                                    <Heading level="h3" size={30}>Share your expertise</Heading>
+                                    <Paragraph size={18}>
+                                        Contribute an article or tutorial to our blog and help the community grow.
+                                    </Paragraph>
+                                </Stack>
+                            </Stack>
+                        </Card>
+                    </Col>
+
+                    {/* Card 2: Read and Engage */}
+                    <Col span={4} break="md" halfBreak="lg">
+                        <Card>
+                            <Stack gap="md">
+                                <CardHeader>
+                                    <div {...stylex.attrs(styles.cardIllustrationContainer)}>
+                                        <img
+                                            src={ReadEngageIllustration.src}
+                                            alt="Illustration representing reading articles and engaging with comments"
+                                            {...stylex.attrs(styles.cardIllustration)}
+                                        />
+                                    </div>
+                                </CardHeader>
+                                <Stack gap="sm">
+                                    <Heading level="h3" size={30}>Read and engage</Heading>
+                                    <Paragraph size={18}>
+                                        Discover insightful articles, leave comments, and react to posts from fellow writers.
+                                    </Paragraph>
+                                </Stack>
+                            </Stack>
+                        </Card>
+                    </Col>
+
+                    {/* Card 3: Grow with the Community */}
+                    <Col span={4} break="md" halfBreak="lg">
+                        <Card>
+                            <Stack gap="md">
+                                <CardHeader>
+                                    <div {...stylex.attrs(styles.cardIllustrationContainer)}>
+                                        <img
+                                            src={GrowCommunityIllustration.src}
+                                            alt="Illustration showing a community of writers collaborating and growing"
+                                            {...stylex.attrs(styles.cardIllustration)}
+                                        />
+                                    </div>
+                                </CardHeader>
+                                <Stack gap="sm">
+                                    <Heading level="h3" size={30}>Grow with the community</Heading>
+                                    <Paragraph size={18}>
+                                        Connect with other Ukrainian writers, share knowledge, and expand your network.
+                                    </Paragraph>
+                                </Stack>
+                            </Stack>
+                        </Card>
+                    </Col>
+                </Row>
+            </Stack>
+        </Section>
+    </Container>
+    {/* The Call to Action section is rendered by prefooter.tsx, which is part of FooterLayout */}
+</FooterLayout>

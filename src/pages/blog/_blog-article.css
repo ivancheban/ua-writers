@@ -1,0 +1,61 @@
+.blog_article {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  line-height: 1.6;
+}
+
+.blog_article p,
+.blog_article h1,
+.blog_article h2,
+.blog_article h3,
+.blog_article h4,
+.blog_article h5,
+.blog_article h6,
+.blog_article ol,
+.blog_article ul {
+  margin: 0;
+}
+
+.blog_article h2 {
+  font-size: 1.333rem;
+}
+
+.blog_article h3 {
+  font-size: 1.250rem;
+}
+
+.blog_article h4 {
+  font-size: 1.166rem;
+}
+
+.blog_article h5 {
+  font-size: 1.083rem;
+}
+
+.blog_article h6 {
+  font-size: 1rem;
+}
+
+.blog_article li {
+  margin-bottom: 1.25rem;
+}
+
+.blog_article img {
+  /* REMOVE or COMMENT OUT aspect-ratio */
+  /* aspect-ratio: 16 / 9; */
+
+  display: block;
+  max-width: 100%;     /* Use max-width instead of width for responsiveness */
+  height: auto;        /* This is key to maintaining aspect ratio with max-width */
+  /* padding: 30px; */    /* Padding on an <img> tag itself usually isn't what you want.
+                             If you want space around the image within a background,
+                             wrap the image in a div and apply padding/background to the div. */
+  border-radius: 10px; /* This is fine */
+  /* background-color: #F4F1FC; */ /* Background on an <img> won't show unless image is transparent.
+                                      Apply to a wrapper div if needed. */
+  margin-top: 2rem;    /* Changed from margin: 2rem 0; for clarity */
+  margin-bottom: 2rem;
+  margin-left: auto;   /* Optional: Center block images */
+  margin-right: auto;  /* Optional: Center block images */
+}
