@@ -62,7 +62,12 @@ const { Content } = await render(post);
 									</Row>
 									<CardHeader>
 										<Aspect>
-											<img src={post.data.image} alt="" role="presentation" />
+											<img
+            src={post.data.image}
+            alt={`Featured image for ${post.data.title}`} {/* Added better alt text */}
+            role={post.data.image ? undefined : "presentation"} /* role=presentation if alt is empty */
+            style="display: block; width: 100%; height: 100%; object-fit: contain; object-position: center;"
+        />
 										</Aspect>
 									</CardHeader>
 								</Stack>

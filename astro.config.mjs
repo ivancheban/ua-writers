@@ -8,13 +8,13 @@ import partytown from '@astrojs/partytown';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://www.budgetwarden.com',
+  site: 'https://ua-writers.netlify.app',
   integrations: [react(), stylex(), partytown({
     config: {
       forward: ["dataLayer.push"]
     }
   }), sitemap({
-    filter: (page) => page !== 'https://www.budgetwarden.com/admin/',
+    filter: (page) => page !== 'https://ua-writers.netlify.app/admin/',
   })],
   prefetch: true,
   devToolbar: {
