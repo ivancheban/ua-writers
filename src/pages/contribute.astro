@@ -1,0 +1,107 @@
+---
+// src/pages/contribute.astro
+import HeaderFooterLayout from '../layouts/header-footer-layout.astro';
+import { Container, Row, Col } from '../components/grid';
+import Heading from '../components/heading';
+import Section from '../components/section';
+import Stack from '../components/stack';
+import Paragraph from '../components/paragraph';
+import Anchor from '../components/anchor'; // For mailto link or other links
+---
+
+<HeaderFooterLayout
+    title="Contribute - UA Writers' Space"
+    description="Become a contributor to UA Writers' Space. Share your expertise in technical writing, UX writing, copywriting, and more with the Ukrainian writing community."
+>
+    <Section>
+        <Container>
+            <Row justifyContent="center">
+                <Col span={8} break="lg"> {/* Using a similar column span as blog posts for readability */}
+                    <Stack gap="xl">
+                        <Heading level="h1" size={40} align="center">Become a Contributor</Heading>
+
+                        <Stack gap="lg">
+                            <Paragraph fontSize={18}>
+                                Welcome to UA Writers' Space! We're thrilled you're interested in sharing your voice and expertise with our community. Our platform is dedicated to Ukrainian technical writers, UX writers, content writers, copywriters, and all professionals who work with words in the tech industry and beyond.
+                            </Paragraph>
+
+                            <Stack gap="md">
+                                <Heading level="h2" size={30}>What we're looking for</Heading>
+                                <Paragraph fontSize={16}>
+                                    We encourage articles, tutorials, case studies, opinion pieces, and discussions on a variety of topics:
+                                </Paragraph>
+                                <ul style="list-style-position: inside; padding-left: 1rem;"> {/* Basic list styling */}
+                                    <li>Technical Writing best practices and tools</li>
+                                    <li>UX Writing principles and techniques</li>
+                                    <li>Content Strategy and Design</li>
+                                    <li>Copywriting for websites, marketing, and products</li>
+                                    <li>Localization and translation challenges for Ukrainian content</li>
+                                    <li>Career development and experiences in the writing field in Ukraine</li>
+                                    <li>AI tools and their impact on writing professions</li>
+                                    <li>Case studies of successful projects</li>
+                                    <li>Tutorials on specific software or methodologies</li>
+                                </ul>
+                                <Paragraph fontSize={16}>
+                                    If you have an idea that you believe would benefit our community, we'd love to hear it.
+                                </Paragraph>
+                            </Stack>
+
+                            <Stack gap="md">
+                                <Heading level="h2" size={30}>How to get involved</Heading>
+                                <Paragraph fontSize={16}>
+                                    Since our platform uses an invite-only system for content contributors (to ensure quality and manage our community effectively), here's how you can express your interest:
+                                </Paragraph>
+                                <Paragraph fontSize={16}>
+                                    <strong>1. Prepare your idea:</strong> Think about the topic you'd like to write about. A brief outline or abstract can be helpful.
+                                </Paragraph>
+                                <Paragraph fontSize={16}>
+                                    <strong>2. Reach out:</strong> Please contact Ivan Cheban via email or Telegram with your introduction, area of expertise, and article idea(s). If you have writing samples or a portfolio, feel free to share a link.
+                                </Paragraph>
+                                <Paragraph fontSize={18} align="center">
+                                    <a
+                                        href="mailto:ivancheban@gmail.com?subject=Contribution%20Inquiry%20for%20UA%20Writers%27%20Space"
+                                        style="text-decoration: none; color: var(--color-anchor, #007bff); margin-right: 1rem;" {/* Added margin-right for spacing */}
+                                    >
+                                        Email: ivancheban@gmail.com
+                                    </a>
+                                    <span style="margin-right: 1rem;">|</span> {/* Separator */}
+                                    <a
+                                        href="https://t.me/ivan_cheban"
+                                        target="_blank" rel="noopener noreferrer"
+                                        style="text-decoration: none; color: var(--color-anchor, #007bff);"
+                                    >
+                                        Telegram: @ivan_cheban
+                                    </a>
+                                </Paragraph>
+                                <Paragraph fontSize={16}>
+                                    <strong>3. Invitation:</strong> We'll send you an invitation to your email. This will allow you to create an account and access our web interface to submit and manage your posts.
+                                </Paragraph>
+                            </Stack>
+
+                            <Stack gap="md">
+                                <Heading level="h2" size={30}>Why contribute?</Heading>
+                                <ul style="list-style-position: inside; padding-left: 1rem;">
+                                    <li>Share your knowledge and build your reputation within the Ukrainian writing community.</li>
+                                    <li>Connect with fellow professionals and expand your network.</li>
+                                    <li>Help others learn and grow in their careers.</li>
+                                    <li>Be part of a collaborative and supportive space.</li>
+                                </ul>
+                            </Stack>
+
+                            <Paragraph fontSize={18}>
+                                We look forward to hearing from you and potentially welcoming you as a contributor to UA Writers' Space!
+                            </Paragraph>
+                        </Stack>
+                    </Stack>
+                </Col>
+            </Row>
+        </Container>
+    </Section>
+</HeaderFooterLayout>
+
+<style>
+  /* Add any specific styles for this page if needed, or use global/component styles */
+  ul li {
+    margin-bottom: 0.5rem; /* A bit of spacing for list items */
+  }
+</style>

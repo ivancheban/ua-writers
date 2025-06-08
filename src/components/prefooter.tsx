@@ -65,7 +65,7 @@ const Prefooter = () => (
             </Stack>
             <Row>
                 <Col layout="fit">
-                    <Button href="https://app.budgetwarden.com/sign-up" fontSize={20}>Become a contributor</Button>
+                    <Button href="/contribute/" fontSize={20}>Become a contributor</Button>
                 </Col>
             </Row>
           </Stack>
