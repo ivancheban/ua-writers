@@ -20,31 +20,23 @@ To bind your MadCap Flare project to the GitHub repository:
 
 1. Create a new (empty) GitHub repository.
 
-    ![New GitHub repository](./img/new-github-repo.png)
-
+   ![New GitHub repository](/uploads/Image.png)
 2. Copy the link to your new and empty repository.
 
-    ![Copy the link to the repository](./img/github-repo-link.png)
-
+   ![Copy the link to the repository](./img/github-repo-link.png)
 3. In your MadCap Flare, open **Project** > **Project Properties** > **Source Control** > **Bind Project**.
 
-    ![MadCap project properties](./img/project-properties.png)
-
+   ![MadCap project properties](./img/project-properties.png)
 4. Select **Git** as your source control provider.
-
 5. Select the **Remote Repository** checkbox.
-
 6. Select the **Push on bind** checkbox.
-
 7. Paste the link to your repository.
-
 8. Enter your name, email address, and click OK.
 
-    ![Bind project](./img/bind-project.png)
-
+   ![Bind project](./img/bind-project.png)
 9. Review the details of your bound project and click OK to close the menu.
 
-    ![Bound project](./img/bound-project.png)
+   ![Bound project](./img/bound-project.png)
 
 Go to your GitHub repository and refresh the page to see the changes.
 
@@ -60,23 +52,19 @@ To connect your local MadCap project to a new GitHub repository in Visual Studio
 
 1. Open your Flare project folder in VS Code.
 
-    ![Open folder in VS Code](./img/open-folder-vscode.png)
+   ![Open folder in VS Code](./img/open-folder-vscode.png)
 
-    ![Select folder](./img/select-folder.png)
-
+   ![Select folder](./img/select-folder.png)
 2. Select the Source Control tab from the side panel or click <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd>.
-
 3. Select **Publish to GitHub**.
 
-    ![Publish to GitHub](./img/publish-github.png)
-
+   ![Publish to GitHub](./img/publish-github.png)
 4. Select **Publish to GitHub public repository** and click OK.
 
-    ![Publish to public repository](./img/public-repo.png)
-
+   ![Publish to public repository](./img/public-repo.png)
 5. Select **Open on GitHub** in the bottom left corner of the screen.
 
-    ![Open on GitHub](./img/open-github.png)
+   ![Open on GitHub](./img/open-github.png)
 
 You can go to your GitHub repositories and find your new repo.
 
@@ -94,29 +82,24 @@ To import an existing MadCap Flare project from the GitHub or GitLab repository:
 
 1. Go to the GitHub or GitLab repository containing the MadCap Flare project you want to import.
 
-    For example: https://github.com/ivancheban/Sample.
-
+   For example: https://github.com/ivancheban/Sample.
 2. Copy the HTTPS link to this repository.
 
-    For example: https://github.com/ivancheban/Sample.git
+   For example: https://github.com/ivancheban/Sample.git
 
-    ![Copy link to the repository](./img/copy-link.png)
-
+   ![Copy link to the repository](./img/copy-link.png)
 3. In MadCap Flare, select **File** > **New Project** > **Import From Source Control**.
 
-    ![Import from Source Control](./img/import-source-control.png)
-
+   ![Import from Source Control](./img/import-source-control.png)
 4. Paste the HTTPS link to your GitHub or GitLab repository ending in .git and click Next.
 
-    ![Select source control](./img/select-source-control.png)
-
+   ![Select source control](./img/select-source-control.png)
 5. Click Browse, select the MadCap Flare project file in the remote repository, and click OK.
 
-    ![Select project file](./img/select-project-file.png)
-
+   ![Select project file](./img/select-project-file.png)
 6. Click Next and Finish.
 
-    ![Finish importing](./img/finish-import.png)
+   ![Finish importing](./img/finish-import.png)
 
 As a result, your MadCap project from GitHub or GitLab is imported locally on your computer. This MadCap project is now bound or connected to your remote repository. You can start changing the files locally, committing and pushing the changes to the remote repository.
 
