@@ -1,8 +1,8 @@
 ---
-title: "How to connect MadCap Flare to Git"
+title: How to connect MadCap Flare to Git
 date: 2023-11-11T16:12:00.000Z
 image: /uploads/connect-madcap-git-s.webp
-thumbnail: /uploads/connect-madcap-git.webp
+thumbnail: /uploads/madcap-cover.jpg
 author: Ivan Cheban
 summary: Use this instruction to connect MadCap Flare to GitHub.
 ---
