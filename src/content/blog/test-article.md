@@ -2,7 +2,7 @@
 title: Test article
 date: 2025-06-21T17:50:00.000Z
 image: /uploads/docusaurus-site.webp
-thumbnail: /uploads/default-intro.webp
+thumbnail: /uploads/madcap-cover.jpg
 author: Ivan Cheban
 summary: This is test
 ---
