@@ -59,3 +59,96 @@
   margin-left: auto;   /* Optional: Center block images */
   margin-right: auto;  /* Optional: Center block images */
 }
+
+.blog_article .markdown-alert { /* Adjust selector if GFM outputs differently */
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem; /* Overrides the gap from .blog_article if needed, or remove if gap is fine */
+  border-left-width: 0.3rem;
+  border-left-style: solid;
+  border-radius: 6px; /* Slightly different radius for distinction */
+  font-size: 0.95em; /* Slightly smaller font for alerts */
+}
+
+.blog_article .markdown-alert p {
+  margin: 0; /* Reset paragraph margins within alerts if needed */
+  padding-top: 0.25rem;
+}
+.blog_article .markdown-alert p:first-child {
+  padding-top: 0;
+}
+
+
+.blog_article .markdown-alert-title { /* Styles the "[!NOTE]" or title part */
+  font-weight: 600; /* Semibold */
+  margin: 0 0 0.5rem 0; /* Remove default p margin, add bottom margin */
+  display: flex;
+  align-items: center;
+}
+
+.blog_article .markdown-alert-title svg.octicon { /* If an icon is present */
+  margin-right: 0.5em;
+  display: inline-block;
+  vertical-align: middle; /* Or adjust based on icon library */
+  width: 1.2em;
+  height: 1.2em;
+}
+
+/* NOTE Admonition */
+.blog_article .markdown-alert-note {
+  border-left-color: #58a6ff; /* Blue */
+  background-color: #ddf4ff;
+}
+.blog_article .markdown-alert-note .markdown-alert-title {
+  color: #0969da;
+}
+.blog_article .markdown-alert-note .markdown-alert-title svg.octicon {
+  fill: #0969da;
+}
+
+/* TIP Admonition */
+.blog_article .markdown-alert-tip {
+  border-left-color: #3fb950; /* Green */
+  background-color: #dcfce7;
+}
+.blog_article .markdown-alert-tip .markdown-alert-title {
+  color: #1a7f37;
+}
+.blog_article .markdown-alert-tip .markdown-alert-title svg.octicon {
+  fill: #1a7f37;
+}
+
+/* IMPORTANT Admonition */
+.blog_article .markdown-alert-important {
+  border-left-color: #8957e5; /* Purple */
+  background-color: #f3eefc;
+}
+.blog_article .markdown-alert-important .markdown-alert-title {
+  color: #6f42c1;
+}
+.blog_article .markdown-alert-important .markdown-alert-title svg.octicon {
+  fill: #6f42c1;
+}
+
+/* WARNING Admonition */
+.blog_article .markdown-alert-warning {
+  border-left-color: #d29922; /* Yellow/Orange */
+  background-color: #fff8c5;
+}
+.blog_article .markdown-alert-warning .markdown-alert-title {
+  color: #b08800;
+}
+.blog_article .markdown-alert-warning .markdown-alert-title svg.octicon {
+  fill: #b08800;
+}
+
+/* CAUTION Admonition */
+.blog_article .markdown-alert-caution {
+  border-left-color: #cf222e; /* Red */
+  background-color: #ffebe9;
+}
+.blog_article .markdown-alert-caution .markdown-alert-title {
+  color: #a40e26;
+}
+.blog_article .markdown-alert-caution .markdown-alert-title svg.octicon {
+  fill: #a40e26;
+}
