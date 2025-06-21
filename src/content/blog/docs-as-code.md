@@ -4,52 +4,42 @@ date: 2023-10-26T17:36:00.000Z
 image: /uploads/docs-as-code-feature.jpg
 thumbnail: /uploads/docs-as-code-cover.jpg
 author: Ivan Cheban
-summary: In this article, I will talk about the docs-as-code approach to creating documentation as a static site using Docusaurus, a static site generator. In addition to general information about the modern approach to creating documentation, I offer step-by-step instructions on how to create a site with documentation without knowledge of the programming language, as well as publish this site on the Internet.
+summary: In this article, I will talk about the docs-as-code approach to
+  creating documentation as a static site using Docusaurus, a static site
+  generator. In addition to general information about the modern approach to
+  creating documentation, I offer step-by-step instructions on how to create a
+  site with documentation without knowledge of the programming language, as well
+  as publish this site on the Internet.
 ---
-
 In this article, I will talk about the docs-as-code approach to creating documentation as a static site using Docusaurus, a static site generator. In addition to general information about the modern approach to creating documentation, I offer step-by-step instructions on how to create a site with documentation without knowledge of the programming language, as well as publish this site on the Internet.
 
 The article is aimed primarily at tech writers, but can also be useful for the software development teams looking for a way to create an internal or external site with documentation for their software product.
 
 In this article, you learn:
 
-- What’s the docs-as-code approach
-
-- How to create a site with documentation using the Docusaurus static site generator in 5 minutes
-
-- How to customize the appearance of the site with documentation
-
-- How to create and edit documentation articles on the site
-
-- How to publish a site with documentation on the Internet for free
-
-- How to configure a CI / CD pipeline to automate the publication of changes on the site
+* What’s the docs-as-code approach
+* How to create a site with documentation using the Docusaurus static site generator in 5 minutes
+* How to customize the appearance of the site with documentation
+* How to create and edit documentation articles on the site
+* How to publish a site with documentation on the Internet for free
+* How to configure a CI / CD pipeline to automate the publication of changes on the site
 
 ## Table of Contents
 
-- Docs-as-code
+* Docs-as-code
+* Docusaurus static site generator
+* Adjust the appearance of the site
+* Create and edit documentation articles
 
-- Docusaurus static site generator
+  * Location of documentation articles
+  * Order of articles in the documentation section
+  * Subsections in the documentation section
+  * Order of documentation sections
+* Publish your documentation site
 
-- Adjust the appearance of the site
-
-- Create and edit documentation articles
-
-  - Location of documentation articles
-
-  - Order of articles in the documentation section
-
-  - Subsections in the documentation section
-
-  - Order of documentation sections
-
-- Publish your documentation site
-
-  - Upload to GitHub
-
-  - Publish the site using Netlify 
-
-- CI/CD pipeline
+  * Upload to GitHub
+  * Publish the site using Netlify 
+* CI/CD pipeline
 
 ## Docs-as-code
 
@@ -57,20 +47,13 @@ The *docs-as-code* approach is becoming more common among tech writers and other
 
 An experienced Google tech writer Tom Johnson [writes](https://idratherbewriting.com/learnapidoc/pubapis_docs_as_code.html) in his blog: "Docs-as-code means to treat docs just like developers treat code." He provides the following features of the *docs-as-code approach*:
 
-* **Work with files in the format of "lightweight" or "readable" (plain) markup.**  This is primarily Markdown (.md)—the most common documentation source format for docs-as-code. Markdown is a simple and readable markup format. For example, bold highlighting is done with two asterisks ** at the beginning and end of the word or phrase you want to highlight in bold. This way, you can read Markdown files in the source code of the documentation even before converting to HTML. This doesn't require a WYSIWYG editor that converts the hard-to-read XML code, as Word or MadCap Flare does.
-
+* **Work with files in the format of "lightweight" or "readable" (plain) markup.**  This is primarily Markdown (.md)—the most common documentation source format for docs-as-code. Markdown is a simple and readable markup format. For example, bold highlighting is done with two asterisks \*\* at the beginning and end of the word or phrase you want to highlight in bold. This way, you can read Markdown files in the source code of the documentation even before converting to HTML. This doesn't require a WYSIWYG editor that converts the hard-to-read XML code, as Word or MadCap Flare does.
 * **Use an open source static site generator.** Today there are dozens of free open source generators of static sites. This means that you can download their code to your computer from an open repository in GitHub, build a site locally to automatically retrieve HTML pages with added CSS styles for color themes, JS elements, and more. You can upload these pages to a web server to make the compiled site available online. Among the most famous generators of static sites are: Jekyll, Hugo, Gatsby, Next.js and others. The list is quite long. You can find more on the [Jamstack](https://jamstack.org/generators/) website. You can use generators not only to create sites with documentation, but primarily for blogs, landings and more.
-
 * **Work with files through a text editor.** The *docs-as-code* tech writers use code editors (IDEs), which are also used by developers. These can be Visual Studio Code, WebStorm, PyCharm and other code editors. In these editors, you can work with files in Markdown format and at the same time have a preview of the final result in HTML. In addition, you can use many extensions that simplify the work with the git, spell check, and so on.
-
 * **Store docs in a version control repository.** Like developers, tech writers commit changes to the documentation code locally and push these changes to the git server in GitHub, GitLab, Bitbucket, or other version control system (VCS). In addition to the well-known advantages of a version control system, such as tracking changes with diffs (difference), the git repository can be used in the CI / CD pipeline to compile and publish a site.
-
 * **Collaborate with other writers using version control.** Like developers, the team of tech writers work together on the project with documentation site: create master and develop branches, feature branches (feature branch is a branch to work on a separate functionality, which in the case of documentation may be a separate article on the documentation site), create merge requests (merge request is a request for adding changes to the develop branch from a feature branch after finishing writing an article) and code reviews by the team lead.
-
 * **Automate the site build process with continuous delivery using the CI/CD pipeline.** Usually, devops or system engineers configure the process of automatically building a site with documentation and its publication (deploy) on the web server. Such specialists create a script with all the steps and commands of generating a static site: after pushing changes to the master branch, a script is automatically launched that executes commands to build the site on the server and deploys the generated HTML pages with all CSS styles and JS elements as a static site with documentation.
-
 * **Run validation checks.** Like developers, tech writers test the documentation for compliance with certain requirements: no broken links, Vale linter with rules for checking compliance with the requirements of Microsoft's style guides, Google and their own style guides. I wrote about this in my [previous article](../vale/vale-styleguides).
-
 * **Manage docs using processes similar to engineers (Scrum, Agile, Kanban).** Like developers, tech writers work in sprints (sprint is a period that usually lasts one month, during which developers deliver part of the developed functionality to demo to the customer the work done). Tech writers use Jira or other task tracker and perform appropriate Scrum ceremonies (daily standup, Sprint Planning, Retro, etc.). Often tech writers link their tasks of documenting features to the tasks of developers.
 
 The process of developing a documentation site is generally similar to the process of developing code. Next, we install the necessary *docs-as-code* tools in practice, generate a documentation site and publish it on the Internet.
@@ -83,14 +66,14 @@ To install and run Docusaurus:
 
 This is a paragraph before the note.
 
-> [!NOTE]
+>
 > This is a test GFM note. It should be styled differently if GFM is working.
 
 This is a paragraph after the note.
 
-> [!WARNING]
+> \[!WARNING]
 > This is a test GFM warning.
-
+>
 > Just a regular blockquote to compare.
 
 1. Make sure Node.js is installed on your computer. In the command prompt, enter: `node -v`
@@ -98,104 +81,84 @@ This is a paragraph after the note.
 > note After all the commands here and after you need to press Enter.
 
 2. Install [Node.js](https://nodejs.org/en/download/) if the version isn't displayed.
-
 3. Reboot.
-
 4. Create a folder where you want to deploy the project site with documentation. For example, at the command prompt, type: `md my-docusaurus-projects` to create a folder and `cd my-docusaurus-projects` to go to the created folder.
-
 5. Create a site with documentation using the latest version of the Docusaurus generator with the project name `my-site`:
 
-    ```sh
-    npx create-docusaurus@latest my-site classic
-    ```
+   ```sh
+   npx create-docusaurus@latest my-site classic
+   ```
 
-    {{< alert title="Note" >}}`classic` is a pre-installed site theme.{{< /alert >}}
-
+   {{< alert title="Note" >}}`classic` is a pre-installed site theme.{{< /alert >}}
 6. Enter `yes` when the message to continue the installation appears.
 
-    Wait for the system to install all npm dependencies.
-
+   Wait for the system to install all npm dependencies.
 7. After the installation is complete, go to the folder of the newly created site project: `cd my-site`
-
 8. Run the site on a local server:
 
-    ```sh
-    npm start
-    ```
+   ```sh
+   npm start
+   ```
 
-    The site with the documentation opens in the browser: [http://localhost:3000/](http://localhost:3000/).
+   The site with the documentation opens in the browser: <http://localhost:3000/>.
 
-    ![img](/uploads/docusaurus-site.webp)
+   ![img](/uploads/docusaurus-site.webp)
 
 ## Adjust the appearance of the site
 
 So, you launched the site locally in the browser. The site project folder with all the necessary files is in my case: `C:\Users\Ivan_Cheban\my-docusaurus-projects\my-site`. We will now change:
 
-- The name of the site
+* The name of the site
+* Logo image
+* Color scheme of the theme
+* Text on the home page
 
-- Logo image
-
-- Color scheme of the theme
-
-- Text on the home page
-
-You can read about all the settings of the site created with Docusaurus in their official documentation: [https://docusaurus.io/docs](https://docusaurus.io/docs).
+You can read about all the settings of the site created with Docusaurus in their official documentation: <https://docusaurus.io/docs>.
 
 To change the site name:
 
 1. Open the project folder in the VS Code editor.
-
 2. Select the `docusaurus.config.js` file.
 
-    ![img](/uploads/docusaurus-config.webp)
-
+   ![img](/uploads/docusaurus-config.webp)
 3. Change the site name `title: 'My Site'` to your own. For example: `Documentation site`.
 
-    {{< alert title="Note" >}}All changes are immediately reflected in the browser, because you launched the site on a local server in the live reload mode.{{< /alert >}}
-
+   {{< alert title="Note" >}}All changes are immediately reflected in the browser, because you launched the site on a local server in the live reload mode.{{< /alert >}}
 4. In the same file below, change the site name `title: 'My Site'` in the navigation menu.
 
-    ![img](/uploads/navbar.webp)
+   ![img](/uploads/navbar.webp)
 
 To change the logo image (dinosaur):
 
 1. Copy your logo image to a folder `c:\Users\Ivan_Cheban\my-docusaurus-projects\my-site\static\img\`.
-
-2. Replace the image `logo.svg` with your own image with the same filename and extension. For example, I downloaded the logo here: [https://www.svgrepo.com/download/205072/documents-document.svg](https://www.svgrepo.com/download/205072/documents-document.svg).
-
+2. Replace the image `logo.svg` with your own image with the same filename and extension. For example, I downloaded the logo here: <https://www.svgrepo.com/download/205072/documents-document.svg>.
 3. Reload the site's documentation page in the browser to see the new logo.
 
 To change the color scheme of the theme:
 
 1. In VS Code, select the `c:\Users\Ivan_Cheban\my-docusaurus-projects\my-site\src\css\main.css` file.
-
 2. Change the hex color code for the `--ifm-color-primary` setting from `#25c2a0` to `#90a3b0` or another color to your liking.
 
-    {{< alert title="Note" >}}The changes apply not only to the home page, but also to the color scheme on other pages of the site (side menu, top navigation menu, link color, etc.).{{< /alert >}}
+   {{< alert title="Note" >}}The changes apply not only to the home page, but also to the color scheme on other pages of the site (side menu, top navigation menu, link color, etc.).{{< /alert >}}
 
 To change the text on the home page of the site:
 
 1. Change the site subtitle `tagline` in the `docusaurus.config.js` file from `Dinosaurs are cool` to `How to create your documentation site with Docusaurus`.
-
 2. Change the names and links, copyright, etc. at the bottom of the site `footer`.
-
 3. If you don't need a blog on the documentation site, comment out (`//`) the line so that it doesn't appear in the navigation menu.
 
-    ![img](/uploads/comment-out.webp)
-
+   ![img](/uploads/comment-out.webp)
 4. Rename the documentation section of the site `label` from `Tutorial` to `Docs`.
-
 5. In VS Code, select the `my-site\src\components\HomepageFeatures.js` file and change the text and image features on the home page.
 
-    ![img](/uploads/homepage-features.webp)
-
+   ![img](/uploads/homepage-features.webp)
 6. In VS Code, select the `my-site\src\pages\index.js` file to change the label on the button from `Docusaurus Tutorial - 5min` to `Start here`.
 
-    ![img](/uploads/action-button.webp)
+   ![img](/uploads/action-button.webp)
 
-    After all these changes, the home page will look like this.
+   After all these changes, the home page will look like this.
 
-    ![img](/uploads/start-page.webp)
+   ![img](/uploads/start-page.webp)
 
 ## Create and edit documentation articles
 
@@ -251,13 +214,12 @@ The article hierarchy within a section is changed using the `sidebar_position` p
 
 So far, you've created a local site with documentation and can view it in the browser. It's time to publish it online, so everybody can view it using the link. To do this, you need:
 
-- Account in [GitHub](https://github.com/), where you'll load the source code of the project documentation.
-
-- Account in [Netlify](https://app.netlify.com/), where you'll host the generated site.
+* Account in [GitHub](https://github.com/), where you'll load the source code of the project documentation.
+* Account in [Netlify](https://app.netlify.com/), where you'll host the generated site.
 
 {{< alert title="Note" >}}First, sign up for GitHub to sign in to Netlify with your GitHub account.{{< /alert >}}
 
-You also need to download and install the git locally on your computer: [https://git-scm.com/downloads](https://git-scm.com/downloads).
+You also need to download and install the git locally on your computer: <https://git-scm.com/downloads>.
 
 To verify that your git is installed locally, in the command prompt, type:
 
@@ -270,73 +232,56 @@ git version
 First, link the local documentation project folder to the GitHub repository:
 
 1. Open the project folder with the documentation in VS Code. In my case it's: `c:\Users\Ivan_Cheban\my-docusaurus-projects\my-site\`.
-
 2. Go to the Source Control tab in the VS Code side menu.
-
 3. Select **Publish to GitHub**.
 
-    ![img](/uploads/publish-github.webp)
-
+   ![img](/uploads/publish-github.webp)
 4. Select **Publish to GitHub public repository**.
-
 5. Wait for your project to be published and select **Open on GitHub** to go to the created repository in GitHub.
 
-    ![img](/uploads/github-my-site.webp)
+   ![img](/uploads/github-my-site.webp)
 
 Your local project is now synced to the GitHub repository. All changes you make locally you need to synchronize with the git repository manually.
 
 After you make all the necessary changes in your documentation:
 
 1. In VS Code, click <kbd>Ctrl+Shift+P</kbd>.
-
 2. Enter or select **Git: Commit All**.
 
-    ![img](/uploads/commit-all.webp)
-
+   ![img](/uploads/commit-all.webp)
 3. Enter the message you changed.
-
 4. Click <kbd>Ctrl+Shift+P</kbd>.
-
 5. Enter or select **Git: Push**.
 
-    Your changes have been uploaded to the GitHub server.
+   Your changes have been uploaded to the GitHub server.
 
 ### Publish the site using Netlify
 
 Now you can publish your site with documentation using the Netlify service. It's free if the domain name of the site contains `netlify.app`.
 
 1. Open https://app.netlify.com/
-
 2. Log in with your GitHub account.
-
 3. Select **New site from Git**.
 
-    ![img](/uploads/new-site.webp)
-
+   ![img](/uploads/new-site.webp)
 4. Select **GitHub**.
 
-    ![img](/uploads/github.webp)
-
+   ![img](/uploads/github.webp)
 5. Authorize Netlify to access your GitHub repository and select a repository with your site.
 
-    ![img](/uploads/import-github.webp)
-
+   ![img](/uploads/import-github.webp)
 6. Select **Deploy site**.
 
-    ![img](/uploads/deploy-netlify.webp)
-
+   ![img](/uploads/deploy-netlify.webp)
 7. Wait till your site is published (deploy).
-
 8. As the site is published with a random name—such as `inspiring-benz-dc91fd`—change the site name to something more meaningful in the **Site settings**.
 
-    ![img](/uploads/site-settings-netlify.webp)
-
+   ![img](/uploads/site-settings-netlify.webp)
 9. Select **Change site name** and enter your name.
 
-    ![img](/uploads/change-site-name-netlify.webp)
+   ![img](/uploads/change-site-name-netlify.webp)
 
-    I entered `ivan-documentation-example`.
-
+   I entered `ivan-documentation-example`.
 10. Follow the link to the published site. In my case it's:
 
     https://ivan-documentation-example.netlify.app/
